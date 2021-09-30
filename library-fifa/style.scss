@@ -1,0 +1,47 @@
+@import './mixins';
+@import './variables';
+
+/*Jag har bara importat generalla mixins i den här filen*/
+
+body {
+    @include bodyStruction($backgroundColor, center);
+    @include spaceRemove();
+}
+
+.top {
+    @include headerText();
+    @include spaceRemove();
+}
+
+.bodytop {
+    @include classSize();
+}
+/*Extends kopierar kod från andra klasser så att det blir
+generellt mindre kod*/
+.middle {
+    @extend .top;
+}
+
+.bodymiddle {
+    @extend .bodytop;
+}
+
+.bottom {
+    @extend .top;
+}
+
+.bodybottom {
+    @extend .bodytop;
+}
+
+p {
+    @include bodyText($textColor, 24px);
+    @include flexcenter(left);
+    @include textBox();
+}
+
+footer {
+    @include flexcenter(column);
+    @include textBox();
+    @include bodyText(rgba(255, 255, 255, 0.5), 14px);
+}
